@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&family=Caveat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="no-scroll">
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <!-- Canvas for subtle background particles -->
+        <canvas id="particle-canvas"></canvas>
+
+        <div class="intro-content">
+            <h1 class="age-number" id="age">21</h1>
+            <p class="special-text">A very special person was born on this day ❤️</p>
+            <p class="date-text">16 October</p>
+
+            <button id="open-surprise-btn" class="glow-btn">Open Your Surprise ❤️</button>
+        </div>
+
+        <!-- Container for floating balloons and hearts -->
+        <div id="decorations-container"></div>
+    </section>
+
+    <!-- Main Birthday Section -->
+    <section id="birthday-main" class="main-section">
+        <div class="scrapbook-container">
+            <!-- Left Side: Text -->
+            <div class="scrapbook-text-col scroll-anim fade-up">
+                <h2 class="birthday-heading">
+                    <span class="happy-bday">Happy Birthday</span><br>
+                    <span class="boyfriend-name">My Sweet Heart </span>
+                </h2>
+                <div class="doodles">✨ ❤️ ✨</div>
+                <p class="sweet-message">To the person who makes my world a little more beautiful every single day. ❤️
+                </p>
+                <p class="small-date">16 October • The day my favourite person was born ✨</p>
+            </div>
+
+            <!-- Right Side: Collages -->
+            <div class="scrapbook-media-col">
+                <!-- Heart Collage -->
+                <div class="heart-collage scroll-anim scale-in">
+                    <img src="assets/photos/Pic_1.jpg" alt="Memory" class="collage-photo p1 gallery-img">
+                    <img src="assets/photos/Pic_2.jpg" alt="Memory" class="collage-photo p2 gallery-img">
+                    <img src="assets/photos/Pic_3.jpeg" alt="Memory" class="collage-photo p3 gallery-img">
+                    <img src="assets/photos/Pic_4.jpeg" alt="Memory" class="collage-photo p4 gallery-img">
+                    <img src="assets/photos/Pic_5.jpg" alt="Memory" class="collage-photo p5 gallery-img">
+                    <img src="assets/photos/Pic_6.jpg" alt="Memory" class="collage-photo p6 gallery-img">
+                    <img src="assets/photos/Pic_7.jpeg" alt="Memory" class="collage-photo p7 gallery-img">
+                    <img src="assets/photos/Pic_8.jpeg" alt="Memory" class="collage-photo p8 gallery-img">
+                </div>
+
+                <!-- Film Strip -->
+                <div class="film-strip-container scroll-anim slide-up">
+                    <div class="film-strip">
+                        <div class="film-track">
+                            <div class="film-photo"><img src="assets/photos/Pic_9.jpeg" alt="Film Memory"
+                                    class="film-img gallery-img"></div>
+                            <div class="film-photo"><img src="assets/photos/Pic_10.jpg" alt="Film Memory"
+                                    class="film-img gallery-img"></div>
+                            <div class="film-photo"><img src="assets/photos/Pic_11.jpg" alt="Film Memory"
+                                    class="film-img gallery-img"></div>
+                            <div class="film-photo"><img src="assets/photos/Pic_12.jpeg" alt="Film Memory"
+                                    class="film-img gallery-img"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Wall Section -->
+    <section id="memories" class="memories-section">
+        <div class="memories-header scroll-anim fade-up" style="margin-bottom: 45px;">
+            <h2 class="memories-title">My Life ❤️</h2>
+            <p class="memories-subtitle">Some moments are too special to stay only in our gallery.</p>
+        </div>
+
+        <div class="scrapbook-wall">
+            <!-- Background Doodles/Notes -->
+
+
+
+
+
+
+
+
+
+
+
+            <div class="polaroid-grid">
+                <!-- Polaroid 1 -->
+                <div class="polaroid pol-1 scroll-anim">
+                    <div class="washi-tape tape-peach"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_13.jpeg" alt="Memory" class="gallery-img" loading="lazy">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">My Favourite Person ❤️</div>
+                </div>
+
+                <!-- Polaroid 2 -->
+                <div class="polaroid pol-2 scroll-anim">
+                    <div class="washi-tape tape-blush tape-tilt-right"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_14.jpeg" alt="Memory" class="gallery-img" loading="lazy">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">That Smile >>></div>
+                </div>
+
+                <!-- Polaroid 3 -->
+                <div class="polaroid pol-3 scroll-anim">
+                    <div class="washi-tape tape-beige"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_1.jpg" alt="Memory" class="gallery-img" loading="lazy"
+                            style="filter: grayscale(100%);">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">My World 🌍❤️</div>
+                </div>
+
+                <!-- Polaroid 4 -->
+                <div class="polaroid pol-4 scroll-anim">
+                    <div class="washi-tape tape-lavender tape-tilt-left"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_2.jpg" alt="Memory" class="gallery-img" loading="lazy"
+                            style="filter: grayscale(100%);">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">My Safe Place 🫂</div>
+                </div>
+
+                <!-- Polaroid 5 -->
+                <div class="polaroid pol-5 scroll-anim">
+                    <div class="washi-tape tape-peach tape-tilt-right"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_3.jpeg" alt="Memory" class="gallery-img" loading="lazy"
+                            style="filter: grayscale(100%);">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">Us Being Us 🤍</div>
+                </div>
+
+                <!-- Polaroid 6 -->
+                <div class="polaroid pol-6 scroll-anim">
+                    <div class="washi-tape tape-blush"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_4.jpeg" alt="Memory" class="gallery-img" loading="lazy"
+                            style="filter: grayscale(100%);">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">Favourite Day ✨</div>
+                </div>
+
+                <!-- Polaroid 7 -->
+                <div class="polaroid pol-7 scroll-anim">
+                    <div class="washi-tape tape-beige tape-tilt-left"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_5.jpg" alt="Memory" class="gallery-img" loading="lazy"
+                            style="filter: grayscale(100%);">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">Forever Favourite ✨</div>
+                </div>
+
+                <!-- Polaroid 8 -->
+                <div class="polaroid pol-8 scroll-anim">
+                    <div class="washi-tape tape-lavender tape-tilt-right"></div>
+                    <div class="polaroid-image">
+                        <img src="assets/photos/Pic_6.jpg" alt="Memory" class="gallery-img" loading="lazy"
+                            style="filter: grayscale(100%);">
+                        <div class="polaroid-burst-container"></div>
+                    </div>
+                    <div class="polaroid-caption">You Make Me Smile ❤️</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Small Romantic Message -->
+        <div class="torn-paper-card scroll-anim fade-up">
+            <p>"Photos may freeze a moment,<br>but somehow every memory with you still feels alive. ❤️"</p>
+            <div class="card-doodle">❤️</div>
+        </div>
+    </section>
+
+    <!-- Scrapbook Section -->
+    <section id="scrapbook" class="scrapbook-section">
+        <div class="scrapbook-header scroll-anim fade-up">
+            <h2 class="scrapbook-title">Little Story 📖❤️</h2>
+            <p class="scrapbook-subtitle">Some memories deserve their own pages.</p>
+        </div>
+
+        <div class="scrapbook-wrapper scroll-anim scale-in">
+            <div class="scrapbook-book">
+                <!-- Desktop binding ring -->
+                <div class="binding-rings"></div>
+
+                <!-- Pages Container -->
+                <div class="sb-pages-container">
+
+                    <!-- Page 1 -->
+                    <div class="sb-page page-1" data-page="1">
+                        <div class="page-content">
+                            <h3 class="page-title-handwritten">Happy Birthday, My Love ❤️</h3>
+                            <div class="sb-photo-wrap angle-1 mt-2">
+                                <img src="assets/photos/Pic_7.jpeg" alt="Memory" class="sb-photo gallery-img"
+                                    loading="lazy" style="filter: grayscale(100%);">
+                                <div class="polaroid-burst-container"></div>
+                                <div class="sb-tape tape-center"></div>
+                            </div>
+                            <div class="sb-doodles mt-3">🎂 ✨ ❤️</div>
+                            <p class="sb-date mt-2">16 October ✨</p>
+                        </div>
+                    </div>
+
+                    <!-- Page 2 -->
+                    <div class="sb-page page-2" data-page="2">
+                        <div class="page-content">
+                            <h3 class="page-title-clean">Things I Love About You ❤️</h3>
+                            <ul class="sb-love-list mt-3">
+                                <li>Your smile.</li>
+                                <li>The way you make me laugh.</li>
+                                <li>How comfortable everything feels with you.</li>
+                                <li>The way you care.</li>
+                                <li>Your little habits.</li>
+                                <li>Our random conversations.</li>
+                                <li>How you make ordinary days feel special.</li>
+                                <li>Simply... you. ❤️</li>
+                            </ul>
+
+                            <!-- Small photos absolute positioned around list -->
+                            <div class="sb-abs-photo"
+                                style="top: 15%; right: -2%; width: 32%; transform: rotate(5deg);">
+                                <img src="assets/photos/Pic_9.jpeg" class="sb-photo gallery-img" loading="lazy"
+                                    style="filter: grayscale(100%);">
+                                <div class="sb-tape tape-blush"></div>
+                                <div class="polaroid-burst-container"></div>
+                            </div>
+                            <div class="sb-abs-photo"
+                                style="bottom: 5%; right: 5%; width: 38%; transform: rotate(-4deg);">
+                                <img src="assets/photos/Pic_10.jpg" class="sb-photo gallery-img" loading="lazy"
+                                    style="filter: grayscale(100%);">
+                                <div class="sb-tape tape-beige"></div>
+                                <div class="polaroid-burst-container"></div>
+                            </div>
+
+                            <button id="continue-to-letter-btn" class="glow-btn sb-continue-btn mt-4"
+                                style="font-size: 16px; padding: 12px 24px;" aria-label="Continue">Continue ❤️</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Scrapbook Controls -->
+            <div class="sb-controls">
+                <button class="sb-btn prev-sb-btn" aria-label="Previous page">← Previous</button>
+                <div class="sb-indicator">
+                    <span class="sb-indicator-text">1 / 2</span>
+                </div>
+                <button class="sb-btn next-sb-btn" aria-label="Next page">Next →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mr. Husband Letter Section -->
+    <!-- Mr. Husband Letter Section -->
+    <section id="mr-husband-letter" class="letter-section enhanced-section">
+        <!-- Spotlight -->
+        <div class="cinematic-spotlight"></div>
+
+        <div class="letter-header">
+            <h2 class="letter-title">For My Mr. Husband ❤️</h2>
+            <p class="letter-subtitle fade-in-slow">A few words I never want you to forget... ❤️</p>
+        </div>
+
+        <div class="letter-container delayed-reveal">
+            <div class="letter-card premium-card">
+                <div class="card-pulse-heart">❤️</div>
+
+                <div class="letter-body">
+                    <p class="reveal-p">Hello my mr.husband ❤️</p>
+
+                    <p class="reveal-p">Aaje khabar che ketlo special day che?<br>Mara birthday ni jetli excitement
+                        nathi hoti, aetli tara birthday ni hoy che… 💝</p>
+
+                    <p class="reveal-p">Finally, today’s date — 16/10 🥳🥳🥳🥳<br>Mara ae person no birthday che, jene
+                        always mane support karyo che, always mari sathe j ryo che… 🫂<br>Always mane happy rakhvani j
+                        try kari che…<br>Mari life j tu cho, Jay. 🫂</p>
+
+                    <p class="reveal-p highlight-line">Because maru world 🌎 j tu cho…</p>
+
+                    <p class="reveal-p">Tane khabar che, bija loko ne eni life ma problem aave to mummy, papa, bhai yaad
+                        aave…<br>Pan mari life ma kai pan problem aave, aetle pela tu yaad aav…<br>Mara life ni last 7
+                        minutes pan tu j cho, Jay… 🫂🫂🫂🫂</p>
+
+                    <p class="reveal-p">Tari sathe life ni nani nani moments pan special bani jaay chhe.<br>Tari ek
+                        smile maru mood badli shake chhe, ane taro ek word — 'hu chu ne' — mane badhi problems ma strong
+                        feel karave chhe. ❤️</p>
+
+                    <p class="reveal-p">Jay, mane life perfect nathi joie…<br>Mane bas badhi situation ma taro support
+                        joie che —<br>happiness hoy ke sadness, success hoy ke struggle, hu always tari sathe chu. 🥺❤️
+                    </p>
+
+                    <p class="reveal-p heartbeat-line">Jay, ek promise karu...<br>Life hamesha easy nathi hoy, badha
+                        days perfect nathi hoy, but ek vaat always same rehse —<br>hu tari sathe rahish. 🥹❤️</p>
+
+                    <p class="reveal-p highlight-line">Jya sudhi life chhe,<br>tya sudhi tari sathe aa journey chhe.
+                        ❤️♾️</p>
+
+                    <p class="reveal-p highlight-line">My world is not perfect,<br>but because you are in it,<br>I find
+                        it the most beautiful. 🥺❤️</p>
+
+                    <p class="reveal-p">Thank you for being my person, my forever, my husband, my love, my everything.
+                        🎂❤️</p>
+
+                    <p class="reveal-p">Thank you so much mari life ma aavi ne mari life ne complete banava mate.
+                        ❤️🥹<br>Thank you for always being there for me, my lifeline… ❤️🫶🏻</p>
+
+                    <p class="reveal-p">Bas aaje aa special day par ae j pray karis ke Hari tane always happy and
+                        healthy rakhe… 🥰</p>
+
+                    <p class="reveal-p highlight-line-large">Happy Birthday to the man who makes my life more beautiful
+                        every single day. ❤️<br>I love you endlessly, Jayu ❤️♾️🫂🫂🫂🧿🧿</p>
+                </div>
+
+                <div class="letter-signature reveal-p">
+                    <p>Forever yours ❤️</p>
+                </div>
+            </div>
+
+            <div class="next-section-trigger reveal-p fx-ready fx-romantic-transition">
+                <div class="transition-glowing-heart">❤️</div>
+                <p class="trigger-text new-romantic-text">But love... there’s still something my heart wants to ask from you... ❤️</p>
+                <p class="handwritten-hint">Tap here gently...</p>
+                <button id="read-heart-btn" class="glow-btn romantic-read-btn">Read My Heart →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poem Section -->
+    <section id="tumse-thoda-aur" class="poem-section poem-locked">
+        <div class="poem-spotlight"></div>
+
+        <div class="poem-header">
+            <h2 class="poem-title reveal-blur">Tumse Bas Thoda Sa Aur... ❤️</h2>
+            <p class="poem-subtitle reveal-blur">Kuch baatein sirf dil se maangi jaati hain...</p>
+        </div>
+
+        <div class="poem-body">
+            <p class="poem-line reveal-blur">Tumse tumhara waqt maangungi… ⏳❤️</p>
+            <p class="poem-line reveal-blur">Kab, kahan, kaise ho — iska zikr maangungi… 💭🥹</p>
+            <p class="poem-line reveal-blur">Waqt-bewaqt call karne ka haq maangungi… 📞💕</p>
+            <p class="poem-line reveal-blur">Bin baat ke mere ladne par tumhara sabr maangungi🥺🫂</p>
+            <p class="poem-line reveal-blur">Savere uthaa ke tumhari tasveer maangungi… 📸💗</p>
+
+            <p class="poem-line reveal-blur special-pause">Main jab bhi maangungi… 🌷</p>
+
+            <div class="poem-climax-wrapper reveal-blur">
+                <div class="climax-glow-heart"></div>
+                <p class="poem-line climax-line">Tumhe tumse thoda aur maangungi… ♾️❤️✨</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Surprise Section -->
+    <section id="final-surprise" class="final-section">
+        <!-- Background Effects -->
+        <div class="final-stars"></div>
+        <div id="final-particles" class="final-particles"></div>
+
+        <div class="final-container">
+            <div id="final-intro" class="final-step scroll-anim fade-up fx-ready fx-final-intro">
+                <h2 class="final-heading">One Last Thing... ❤️</h2>
+                <p class="final-sub">Before this little surprise ends,<br>there's something I still want to say...</p>
+                <p class="final-touch-hint">Touch gently... ✨</p>
+                <button id="final-tap-btn" class="final-romantic-btn glow-btn mt-4">Tap Here, My Love ❤️</button>
+            </div>
+
+            <div id="final-message" class="final-step final-hidden">
+                <div class="final-heart-reveal">
+                    <svg class="pulsing-heart" viewBox="0 0 32 29.6">
+                        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                        c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="none" stroke="#d46a6a"
+                            stroke-width="1.5" />
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" class="heart-text">J +
+                            ❤️</text>
+                    </svg>
+                </div>
+                <div class="final-lines">
+                    <p class="f-line f-l1 reveal-blur">Happy Birthday, My Love ❤️</p>
+                    <p class="f-line f-l2 mt-3 reveal-blur">You are not just a part of my life...<br>You are my comfort,<br>my happiness,<br>my safe place,<br>and my favourite person. 🫂❤️</p>
+                    <p class="f-line f-l3 mt-3 reveal-blur">Thank you for every smile,<br>every little moment,<br>every memory,<br>and every time you stayed beside me.</p>
+                    <p class="f-line f-l4 mt-3 reveal-blur">I don't know what every tomorrow will look like...<br>But I know one thing for sure —</p>
+                    
+                    <div class="final-special-moment-wrapper">
+                        <div class="final-special-glow"></div>
+                        <p class="f-line f-l5 mt-3 reveal-blur final-special-line">I want you in all of them. ❤️♾️</p>
+                    </div>
+                    
+                    <p class="f-line f-l6 f-large mt-4 reveal-blur">Happy Birthday to my Husband,<br>My Love,<br>My Everything. 🎂❤️</p>
+                    <p class="f-line f-l7 f-huge mt-4 reveal-blur">I Love You Endlessly, Jayu ❤️♾️</p>
+                </div>
+
+                <div class="final-footer f-line f-l10">
+                    <p class="f-made-with">Made with all my love, just for you. ❤️</p>
+                    <p class="f-date">16 October ✨</p>
+                    <button id="replay-btn" class="replay-btn mt-4">Relive Our Memories ↟</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Modal -->
+    <div id="photo-modal" class="modal modal-hidden">
+        <span class="close-modal">&times;</span>
+        <button class="modal-nav prev-nav" aria-label="Previous image">&#10094;</button>
+        <div class="modal-image-container">
+            <img id="modal-img" src="" alt="Fullscreen Memory">
+            <div class="double-tap-heart">❤️</div>
+        </div>
+        <button class="modal-nav next-nav" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- Floating Music Button -->
+    <button id="music-btn" class="floating-music-btn" aria-label="Play Music">
+        🎵
+    </button>
+
+    <script src="script.js"></script>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/music/music.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>

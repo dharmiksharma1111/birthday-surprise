@@ -1,0 +1,115 @@
+
+/* =========================================================================
+   ROMANTIC TRANSITION BLOCK (MR HUSBAND ENDING)
+   ========================================================================= */
+
+.fx-romantic-transition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px 20px;
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 70%);
+    border-radius: 20px;
+}
+
+/* Floating Sparkles */
+.fx-romantic-transition::before {
+    content: '✨  ✨    ✨';
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
+    color: rgba(255, 215, 0, 0.4);
+    font-size: 10px;
+    letter-spacing: 30px;
+    animation: fxFloatSparkles 4s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+@keyframes fxFloatSparkles {
+    0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+    100% { transform: translateY(-15px) scale(1.1); opacity: 0.8; }
+}
+
+/* 1. Small Glowing Heart */
+.transition-glowing-heart {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 1s ease;
+}
+.fx-romantic-transition.fx-revealed .transition-glowing-heart {
+    opacity: 1;
+    transform: scale(1);
+    animation: fxHeartPulse 2s infinite alternate ease-in-out 1s;
+}
+@keyframes fxHeartPulse {
+    0% { transform: scale(1); text-shadow: 0 0 10px rgba(255, 105, 180, 0.6); }
+    100% { transform: scale(1.15); text-shadow: 0 0 25px rgba(255, 105, 180, 1); }
+}
+
+/* 2. Main Emotional Line */
+.new-romantic-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffd1dc; /* Soft rose */
+    font-style: italic;
+    max-width: 80%;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s; /* Delay 0.5s */
+}
+.fx-romantic-transition.fx-revealed .new-romantic-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Handwritten Hint */
+.handwritten-hint {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #ffb6c1;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(10px) rotate(-3deg);
+    transition: all 1s ease 1.2s; /* Delay 1.2s */
+}
+.fx-romantic-transition.fx-revealed .handwritten-hint {
+    opacity: 0.9;
+    transform: translateY(0) rotate(-3deg);
+}
+
+/* 4. Romantic Button */
+.romantic-read-btn {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 1s ease 1.8s, background 0.3s ease, border 0.3s ease; /* Delay 1.8s */
+    background: rgba(139, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 182, 193, 0.5) !important;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.4) !important;
+    color: #ffe4e1 !important;
+    padding: 12px 30px !important;
+    border-radius: 30px !important;
+    font-size: 1rem !important;
+    position: relative;
+    overflow: hidden;
+}
+.fx-romantic-transition.fx-revealed .romantic-read-btn {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fxBtnBreathe 3s infinite alternate ease-in-out 3s;
+}
+@keyframes fxBtnBreathe {
+    0% { box-shadow: 0 0 10px rgba(255, 182, 193, 0.3); }
+    100% { box-shadow: 0 0 25px rgba(255, 182, 193, 0.7); border-color: rgba(255, 182, 193, 0.8); }
+}
+
+/* Ensure JS-enabled visibility protection works for this block */
+.js-enabled .fx-ready.fx-romantic-transition {
+    opacity: 1; /* Wrapper stays visible, children hide initially */
+}
