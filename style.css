@@ -2539,3 +2539,299 @@ h1, h2, h3, h4, h5, h6 {
     filter: blur(0);
     transform: translateY(0);
 }
+
+
+/* ============================================================
+   FINAL_SMOOTH_RESPONSIVE_PASS_2026_09_24
+   Additive only: keeps existing design/logic, improves smoothness
+   ============================================================ */
+:root {
+  --smooth-ease: cubic-bezier(.22,.72,.22,1);
+  --smooth-fast: 320ms;
+  --smooth-normal: 560ms;
+  --safe-pad-x: clamp(16px, 4vw, 32px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+a,
+.gallery-img,
+.sb-page {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+img {
+  max-width: 100%;
+}
+
+.intro-section,
+.final-section {
+  min-height: 100svh;
+}
+
+#birthday-main,
+#memories,
+#scrapbook,
+#mr-husband-letter,
+#final-surprise {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
+/* Faster, softer one-time reveals. Keep the existing visibility recovery intact. */
+.js-enabled .scroll-anim,
+.js-enabled .reveal-p,
+.js-enabled .reveal-blur,
+.fx-ready {
+  transition-duration: var(--smooth-normal) !important;
+  transition-timing-function: var(--smooth-ease) !important;
+}
+
+.fx-heart-photo,
+.fx-polaroid,
+.fx-film-strip,
+.fx-letter-card,
+.fx-diary,
+.fx-hb-text {
+  transition-duration: 620ms !important;
+  transition-timing-function: var(--smooth-ease) !important;
+}
+
+.fx-btn-ripple,
+.fx-ripple-active {
+  animation-duration: 420ms !important;
+}
+
+#particle-canvas {
+  pointer-events: none;
+  contain: strict;
+}
+
+.floating-music-btn {
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, calc(env(safe-area-inset-bottom) + 12px));
+}
+
+.modal {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Stable interfaces on desktop/tablet without changing the visual language. */
+.scrapbook-container,
+.scrapbook-wrapper,
+.letter-container,
+.final-container {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.heart-collage,
+.film-strip-container,
+.polaroid-grid,
+.scrapbook-book,
+.letter-card,
+.poem-body {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .scrapbook-container {
+    gap: clamp(24px, 6vw, 52px);
+  }
+
+  .scrapbook-text-col,
+  .scrapbook-media-col {
+    min-width: 0;
+  }
+
+  .birthday-heading,
+  .memories-title,
+  .scrapbook-title,
+  .letter-title,
+  .poem-title,
+  .final-heading {
+    text-wrap: balance;
+  }
+}
+
+/* Phone-first stability and readability. */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .main-section,
+  .memories-section,
+  .scrapbook-section,
+  .letter-section,
+  .poem-section,
+  .final-section {
+    padding-left: var(--safe-pad-x);
+    padding-right: var(--safe-pad-x);
+  }
+
+  .scrapbook-container {
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .scrapbook-text-col,
+  .scrapbook-media-col {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .heart-collage {
+    max-width: min(92vw, 410px);
+    margin-inline: auto;
+  }
+
+  .film-strip-container {
+    width: 100%;
+    max-width: min(94vw, 430px);
+    margin-inline: auto;
+    overflow: hidden;
+  }
+
+  .polaroid-grid {
+    max-width: 430px;
+    margin-inline: auto;
+    transform: none !important;
+  }
+
+  .scrapbook-wrapper,
+  .scrapbook-book {
+    width: 100%;
+    max-width: 430px;
+    margin-inline: auto;
+  }
+
+  .sb-page {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .letter-container,
+  .letter-card,
+  .premium-card,
+  .poem-body,
+  .final-container {
+    width: 100%;
+    max-width: 430px;
+    margin-inline: auto;
+  }
+
+  .letter-body,
+  .poem-body,
+  .final-lines {
+    line-height: 1.68;
+  }
+
+  .glow-btn,
+  .sb-btn,
+  .final-romantic-btn,
+  .replay-btn {
+    min-height: 48px;
+  }
+
+  /* Expensive background motion is intentionally calmer on phones. */
+  .cinematic-spotlight,
+  .fx-rose-spotlight,
+  .poem-spotlight,
+  .final-stars {
+    animation-duration: 14s !important;
+  }
+
+  .reveal-blur {
+    filter: blur(2px);
+  }
+
+  .reveal-blur.revealed,
+  .js-enabled .reveal-blur.revealed {
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --safe-pad-x: clamp(14px, 4vw, 18px);
+  }
+
+  .birthday-heading {
+    line-height: 1.02;
+  }
+
+  .sweet-message,
+  .small-date,
+  .memories-subtitle,
+  .scrapbook-subtitle,
+  .letter-body,
+  .poem-line,
+  .final-sub,
+  .final-lines {
+    overflow-wrap: anywhere;
+  }
+
+  .modal-nav,
+  .close-modal {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Keep the proven visibility recovery rules strongest. */
+.js-enabled .scroll-anim.revealed {
+  opacity: 1;
+}
+
+.js-enabled .reveal-p.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js-enabled .reveal-blur.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
