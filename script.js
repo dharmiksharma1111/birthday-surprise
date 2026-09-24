@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         await bgMusic.play();
                         
                         const targetVolume = 0.55;
-                        const step = 0.03;
+                        const step = 0.05;
                         const fade = setInterval(() => {
                             if (bgMusic.volume < targetVolume - step) {
                                 bgMusic.volume += step;
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 bgMusic.volume = targetVolume;
                                 clearInterval(fade);
                             }
-                        }, 80);
+                        }, 55);
                     } catch (error) {
                         console.log("Music playback could not start:", error);
                     }
@@ -130,13 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     setTimeout(() => {
                         creamLayer.style.opacity = '0';
-                        setTimeout(() => creamLayer.remove(), 1000);
-                    }, 800);
-                }, 500);
+                        setTimeout(() => creamLayer.remove(), 520);
+                    }, 420);
+                }, 260);
 
                 setTimeout(() => {
                     if (introContent) introContent.classList.remove('intro-leaving');
-                }, 1200);
+                }, 850);
             });
         }
 
@@ -190,11 +190,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             function createParticles() {
                 particles = [];
-                const numParticles = Math.min(Math.floor(window.innerWidth / 20), 50); // Reduced for mobile
+                const numParticles = Math.min(Math.floor(window.innerWidth / 32), 32); // Final mobile/desktop performance cap
                 for (let i = 0; i < numParticles; i++) { particles.push(new Particle()); }
             }
+            let introParticlesRunning = true;
+            const introObserver = ('IntersectionObserver' in window)
+                ? new IntersectionObserver(([entry]) => { introParticlesRunning = !!entry?.isIntersecting; }, { threshold: 0.01 })
+                : null;
+            introObserver?.observe(document.getElementById('intro'));
+
             function animateParticles() {
-                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                if (introParticlesRunning && !document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     ctx.clearRect(0, 0, width, height);
                     particles.forEach(p => { p.update(); p.draw(); });
                 }
@@ -240,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 introContainer.appendChild(el);
                 setTimeout(() => { if (el.parentNode) el.remove(); }, durations * 1000);
             }
-            setInterval(createFloatingElement, 3500);
+            setInterval(createFloatingElement, 5200);
         }
     }
 
@@ -345,7 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => {
                         page.style.display = 'none';
                         page.classList.remove('fx-page-turn-in', 'fx-page-turn-out', 'fx-page-active');
-                    }, 600);
+                    }, 420);
                 }
             });
 
@@ -427,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             scrapbookSection.style.filter = 'none';
                         }
                     }, 1000);
-                }, 700);
+                }, 430);
             });
         }
     }
@@ -484,9 +490,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => { if (title) title.classList.add('revealed'); }, 300);
                     setTimeout(() => { if (subtitle) subtitle.classList.add('revealed'); }, 600);
 
-                    const delays = [1000, 1500, 2000, 2500, 3000, 3500, 4200];
+                    const delays = [520, 860, 1200, 1540, 1880, 2220, 2660];
                     lines.forEach((line, index) => {
-                        const delay = delays[index] || (4200 + (index - 6) * 700);
+                        const delay = delays[index] || (2660 + (index - 6) * 420);
                         setTimeout(() => {
                             line.classList.add('revealed');
                             
@@ -585,10 +591,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                         line.parentElement.appendChild(h);
                                     }
                                 }
-                            }, 500 + (idx * 2000));
+                            }, 280 + (idx * 560));
                         });
-                    }, 600);
-                }, 300);
+                    }, 320);
+                }, 180);
             });
         }
 
@@ -618,34 +624,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
         
-        // Mobile autonomous drift
-        let driftPhase = 0;
-        let lastScrollY = window.scrollY;
-        let isScrolling = false;
-        
-        window.addEventListener('scroll', () => {
-            isScrolling = true;
-            lastScrollY = window.scrollY;
-        }, {passive: true});
-        
-        setInterval(() => {
-            if (Math.abs(window.scrollY - lastScrollY) < 5) isScrolling = false;
-            lastScrollY = window.scrollY;
-        }, 100);
-        
-        function drift() {
-            if (!isScrolling && window.innerWidth <= 768) {
-                driftPhase += 0.01;
-                const y = Math.sin(driftPhase) * 3; // max 3px
-                const polaroids = document.querySelectorAll('.polaroid');
-                polaroids.forEach((p, idx) => {
-                    const rot = p.style.getPropertyValue('--base-rot') || '0deg';
-                    const offset = (idx % 2 === 0) ? y : -y;
-                    p.style.transform = `translate(0, ${offset}px) rotate(${rot})`;
-                });
-            }
-            requestAnimationFrame(drift);
-        }
-        drift();
+        // Mobile autonomous JS drift removed intentionally.
+        // Static transforms on touch devices are smoother, use less battery, and avoid fighting scroll.
     }
 });
